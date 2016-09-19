@@ -24,7 +24,6 @@ class Work extends React.Component {
   }
   render () {
     let cards = this.state.data.map( (item,i) => <Card {...item} key={i} /> );
-
     return(
       <div className="container-fluid">
         <div className="row" style={{marginTop:'20px'}}>

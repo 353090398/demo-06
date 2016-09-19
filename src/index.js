@@ -7,5 +7,5 @@ import Marked from './Marked';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import './main.css';
 
-// ReactDOM.render(<Routers />, document.getElementById('app'));
-ReactDOM.render(<Marked />, document.getElementById('app'));
+ReactDOM.render(<Routers />, document.getElementById('app'));
+// ReactDOM.render(<Marked />, document.getElementById('app'));

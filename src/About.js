@@ -33,7 +33,6 @@ class About extends React.Component {
       root:{
         maxWidth:'700px',
         margin:'0 auto',
-        border:'1px solid teal',
         textAlign:'center'
       }
     }
