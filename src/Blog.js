@@ -1,20 +1,22 @@
 import React, { PropTypes } from 'react';
 import { getMd } from './utils/helpers';
 import marked from 'marked';
+import hljs from 'highlight.js';
 
 class Blog extends React.Component {
   constructor(){
     super();
     this.state={
-      data:[],
+      data:'',
       wait:true
     }
   }
   componentDidMount(){
     let add = this.props.params.title
+    // console.log(this.props);
     getMd(add)
       .then( (recData) => {
-        // console.log(recData.getJson);
+        // console.log(recData.getMd);
           this.setState({
             data:recData.getMd,
             wait:false
@@ -22,11 +24,15 @@ class Blog extends React.Component {
       });
   }
   render () {
-    // console.log(this.props);
+    marked.setOptions({
+      highlight: function (code) {
+        return hljs.highlightAuto(code).value;
+      }
+  });
     let content = this.state.wait? '请稍等' : marked(this.state.data)
     return(
       <div>
-        <div dangerouslySetInnerHTML={{__html: content}} />
+        <div dangerouslySetInnerHTML={{__html: content}} className="post-content"/>
       </div>
     )
   }
