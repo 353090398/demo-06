@@ -11,8 +11,6 @@ function searchGit (add) {
     });
 }
 
-export { searchGit };
-
 function getJson() {
   let address = `https://raw.githubusercontent.com/353090398/demo-data/master/card.json?${Math.random()}`;
   return axios.get(address)
@@ -24,4 +22,15 @@ function getJson() {
     });
 }
 
-export { getJson };
+function getMd(add) {
+  let address = `https://raw.githubusercontent.com/353090398/demo-data/master/blog/${add}.md?${Math.random()}`;
+  return axios.get(address)
+    .then( (res) => (
+      { getMd:res.data }
+    ))
+    .catch(function (error) {
+      alert(error);
+    });
+}
+
+export { searchGit,getJson,getMd };

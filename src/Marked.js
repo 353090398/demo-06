@@ -4,9 +4,10 @@ console.log(marked('I am using __markdown__.'));
 
 class Marked extends React.Component {
   render () {
+    let content = marked('# asfkalshf')
     return(
       <div>
-        sjlasf
+        <div dangerouslySetInnerHTML={{__html: content}} />
       </div>
     )
   }
